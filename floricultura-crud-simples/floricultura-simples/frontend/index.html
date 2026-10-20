@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Floricultura</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700&family=Nunito+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Floricultura</h1>
+    <p>Controle de estoque</p>
+  </header>
+
+  <!-- Mensagens de sucesso e erro -->
+  <p id="mensagem" aria-live="polite"></p>
+
+  <main>
+    <section class="caixa">
+      <h2 id="titulo-form">Novo produto</h2>
+      <form id="formulario">
+        <input type="hidden" id="id">
+
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" placeholder="Rosa vermelha">
+
+        <label for="categoria">Categoria</label>
+        <select id="categoria">
+          <option>Flores</option>
+          <option>Plantas</option>
+          <option>Arranjos</option>
+          <option>Vasos</option>
+          <option>Acessórios</option>
+        </select>
+
+        <label for="preco">Preço (R$)</label>
+        <input type="number" id="preco" step="0.01" min="0">
+
+        <label for="quantidade">Quantidade</label>
+        <input type="number" id="quantidade" min="0">
+
+        <button type="submit" id="btn-salvar" class="verde">Cadastrar produto</button>
+        <button type="button" id="btn-cancelar" class="borda" hidden>Cancelar edição</button>
+      </form>
+    </section>
+
+    <section class="caixa">
+      <h2>Produtos</h2>
+      <table>
+        <caption hidden>Lista de produtos</caption>
+        <thead>
+          <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Preço</th>
+            <th scope="col">Qtd.</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody id="tabela"></tbody>
+      </table>
+      <p id="vazio" hidden>Nenhum produto cadastrado ainda.</p>
+    </section>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
